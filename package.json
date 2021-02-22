@@ -1,0 +1,36 @@
+{
+  "name": "welth.watch",
+  "description": "watch your crypto welth grow!",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "upload": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "deploy": "npm run generate && npm run upload"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.8.3",
+    "fiber": "^1.0.4",
+    "localforage": "^1.9.0",
+    "lz-string-uri-fix": "^1.4.5",
+    "nuxt": "^2.14.12",
+    "qrcode.vue": "^1.7.0",
+    "sass": "^1.32.7",
+    "sass-loader": "^10.1.1",
+    "short-uuid": "^4.1.0",
+    "v-click-outside": "^3.1.2",
+    "vue-select": "^3.11.2",
+    "vue-simple-spinner": "^1.2.10"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "push-dir": "^0.4.1"
+  }
+}
