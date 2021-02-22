@@ -18,11 +18,12 @@ export default {
     const portfolio = JSON.parse(
       LZString.decompressFromEncodedURIComponent(this.$route.query.data)
     )
+    console.log(portfolio)
     let portfolios = await localforage.getItem('portfolios')
     if (!portfolios) portfolios = {}
     portfolios[this.$route.query.id] = portfolio
     await localforage.setItem('portfolios', portfolios)
-    this.$router.replace(`/${this.$route.query.id}`)
+    this.$router.replace(`/portfolio?id=${this.$route.query.id}`)
   },
 }
 </script>
