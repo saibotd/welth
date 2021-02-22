@@ -38,7 +38,7 @@ export default {
     importUrl() {
       return `${window.location
         .toString()
-        .replace('export', 'import')}#${encodeURIComponent(
+        .replace('export', 'import')}&data=${encodeURIComponent(
         LZString.compressToEncodedURIComponent(JSON.stringify(this.portfolio))
       )}`
     },

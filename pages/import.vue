@@ -16,9 +16,7 @@ export default {
   },
   async mounted() {
     const portfolio = JSON.parse(
-      LZString.decompressFromEncodedURIComponent(
-        window.location.hash.substring(1)
-      )
+      LZString.decompressFromEncodedURIComponent(this.$route.query.data)
     )
     let portfolios = await localforage.getItem('portfolios')
     if (!portfolios) portfolios = {}
