@@ -66,11 +66,10 @@ input {
 }
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.4s, transform 0.5s;
+  transition: opacity 0.25s;
 }
 .page-enter,
 .page-leave-to {
-  transform: translateY(-50vh);
   opacity: 0;
 }
 </style>

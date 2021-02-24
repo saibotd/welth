@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-    <AuroraBorealis />
-  </div>
+  <BigLoader />
 </template>
 
 <script>

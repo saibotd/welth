@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <BigLoader />
-  </div>
+  <BigLoader />
 </template>
 <script>
 import localforage from 'localforage'

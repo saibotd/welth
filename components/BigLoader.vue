@@ -1,7 +1,7 @@
 <template>
   <div class="big-loader">
     <client-only>
-      <div>
+      <div class="inner">
         <vue-simple-spinner
           :size="96"
           :line-size="6"
@@ -21,7 +21,10 @@
   right: 0;
   bottom: 0;
   display: flex;
-  > div {
+  background: black;
+  > .inner {
+    background: url(../assets/logo.svg) no-repeat;
+    background-size: contain;
     margin: auto;
   }
 }

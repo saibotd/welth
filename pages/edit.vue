@@ -1,57 +1,55 @@
 <template>
-  <div class="container">
-    <BigLoader v-if="!ready" />
-    <div v-else>
-      <h1>Edit {{ portfolio.title }}</h1>
-      <form @submit.prevent="submit">
-        <h2>Settings</h2>
-        <div class="inputs">
-          <div class="input">
-            <label>Title</label>
-            <input v-model="portfolio.title" />
-          </div>
-          <div class="input">
-            <label>Locale (number format)</label>
-            <input v-model="portfolio.number_locale" />
-          </div>
-          <div class="input">
-            <label class="checkbox">
-              <input type="checkbox" v-model="portfolio.weighted_trend" />
-              Weighted trend
-            </label>
-          </div>
+  <BigLoader v-if="!ready" />
+  <div class="container" v-else>
+    <h1>Edit {{ portfolio.title }}</h1>
+    <form @submit.prevent="submit">
+      <h2>Settings</h2>
+      <div class="inputs">
+        <div class="input">
+          <label>Title</label>
+          <input v-model="portfolio.title" />
         </div>
-        <h2>Funds</h2>
-        <div class="inputs">
-          <div class="input">
-            <label>Funds spend</label>
-            <input v-model.number="portfolio.funds" type="number" step="any" />
-          </div>
-          <div class="input">
-            <label>Currency</label>
-            <Select v-model="portfolio.currency" :options="currenciesOptions" />
-          </div>
+        <div class="input">
+          <label>Locale (number format)</label>
+          <input v-model="portfolio.number_locale" />
         </div>
-        <h2>Wallets</h2>
-        <div class="wallet" v-for="(wallet, i) in portfolio.wallets" :key="i">
-          <div class="input">
-            <label>Coin</label>
-            <Select v-model="wallet.id" :options="coinsOptions" />
-          </div>
-          <div class="input">
-            <label>Quantity</label>
-            <input v-model.number="wallet.val" type="number" step="any" />
-          </div>
-          <div class="input">
-            <label>Note</label>
-            <input v-model="wallet.note" />
-          </div>
-          <button type="button" @click="rmWallet(i)">-</button>
+        <div class="input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="portfolio.weighted_trend" />
+            Weighted trend
+          </label>
         </div>
-        <button type="button" @click="addWallet">add</button>
-        <button type="submit">save</button>
-      </form>
-    </div>
+      </div>
+      <h2>Funds</h2>
+      <div class="inputs">
+        <div class="input">
+          <label>Funds spend</label>
+          <input v-model.number="portfolio.funds" type="number" step="any" />
+        </div>
+        <div class="input">
+          <label>Currency</label>
+          <Select v-model="portfolio.currency" :options="currenciesOptions" />
+        </div>
+      </div>
+      <h2>Wallets</h2>
+      <div class="wallet" v-for="(wallet, i) in portfolio.wallets" :key="i">
+        <div class="input">
+          <label>Coin</label>
+          <Select v-model="wallet.id" :options="coinsOptions" />
+        </div>
+        <div class="input">
+          <label>Quantity</label>
+          <input v-model.number="wallet.val" type="number" step="any" />
+        </div>
+        <div class="input">
+          <label>Note</label>
+          <input v-model="wallet.note" />
+        </div>
+        <button type="button" @click="rmWallet(i)">-</button>
+      </div>
+      <button type="button" @click="addWallet">add</button>
+      <button type="submit">save</button>
+    </form>
   </div>
 </template>
 

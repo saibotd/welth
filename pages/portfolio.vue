@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <BigLoader v-if="!ready" />
-    <div v-else class="content">
+  <BigLoader v-if="!ready" />
+  <div class="container" v-else>
+    <div class="content">
       <h1>
         <small>
           <LossGain
@@ -11,7 +11,7 @@
             <Counter
               :from="0"
               :to="slotProps0.value"
-              :speed="255"
+              :speed="45"
               v-slot:default="slotProps1"
             >
               {{ formatPercentage(slotProps1.value) }}</Counter
@@ -22,7 +22,7 @@
         <Counter
           :from="0"
           :to="sum - funds"
-          :speed="255"
+          :speed="45"
           v-slot:default="slotProps"
         >
           {{ formatCurrency(slotProps.value) }}</Counter
@@ -78,7 +78,7 @@
         <Counter
           :from="funds"
           :to="sum"
-          :speed="255"
+          :speed="45"
           v-slot:default="slotProps"
           >{{ formatCurrency(slotProps.value) }}</Counter
         >

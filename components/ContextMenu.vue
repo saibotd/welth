@@ -3,7 +3,9 @@
     <nav class="menu">
       <slot></slot>
     </nav>
-    <div class="icon" @click="open = !open"><img src="/logo.svg" /></div>
+    <div class="icon" @click="open = !open">
+      <img src="../assets/logo.svg" />
+    </div>
   </div>
 </template>
 

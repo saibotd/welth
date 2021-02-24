@@ -12,7 +12,7 @@ export default {
     speed: Number,
   },
   data() {
-    return { value: 0, timeout: 10, _timeout: null, steps: 1 }
+    return { value: 0, timeout: 30, _timeout: null, steps: 1 }
   },
   mounted() {
     this.value = this.from
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     initSteps() {
-      this.steps = Math.abs(this.value - this.to) / this.speed
+      this.steps = Math.abs(this.to - this.value) / this.speed
     },
     tick() {
       clearTimeout(this._timeout)
