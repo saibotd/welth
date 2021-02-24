@@ -21,7 +21,6 @@
   right: 0;
   bottom: 0;
   display: flex;
-  background: black;
   > .inner {
     background: url(../assets/logo.svg) no-repeat;
     background-size: contain;
