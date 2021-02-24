@@ -9,7 +9,8 @@ export default {
     const id = await localforage.getItem('portfolio')
     if (id) return this.$router.replace(`/portfolio?id=${id}`)
     const portfolios = await localforage.getItem('portfolios')
-    if (portfolios) return this.$router.replace(`/list`)
+    if (portfolios) return this.$router.replace('/list')
+    else return this.$router.replace('/')
   },
   methods: {
     async createPortfolio() {
