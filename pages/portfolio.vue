@@ -106,6 +106,8 @@
         >
         <nuxt-link :to="`/edit?id=${this.$route.query.id}`">Edit</nuxt-link>
         <nuxt-link :to="`/export?id=${this.$route.query.id}`">Export</nuxt-link>
+        <nuxt-link to="/list">Portfolios</nuxt-link>
+        <nuxt-link to="/">About</nuxt-link>
       </ContextMenu>
     </footer>
   </div>

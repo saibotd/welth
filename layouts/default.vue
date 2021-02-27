@@ -20,6 +20,9 @@ body {
     font-family: sans-serif;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    &:focus {
+      outline: none;
+    }
   }
 }
 .wrapper {
@@ -38,11 +41,32 @@ img {
   padding: 1ex;
   max-width: 800px;
 }
-button {
-  background: transparent;
-  border: 2px solid blueviolet;
-  color: blueviolet;
+button,
+.button {
+  display: inline-block;
+  background: cyan;
+  color: black;
+  border: 0;
   padding: 5px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.6em;
+  font-size: 100%;
+  margin: 0.2em 0;
+  text-align: center;
+  cursor: pointer;
+  &:active,
+  &:focus {
+    top: 2px;
+  }
+  &.red {
+    background: orangered;
+  }
+  &.green {
+    background: greenyellow;
+  }
 }
 h1 {
   font-size: 3em;

@@ -20,7 +20,7 @@
           </label>
         </div>
       </div>
-      <h2>Funds</h2>
+      <h2>Invest</h2>
       <div class="inputs">
         <div class="input">
           <label>Funds spend</label>
@@ -31,6 +31,7 @@
           <Select v-model="portfolio.currency" :options="currenciesOptions" />
         </div>
       </div>
+
       <h2>Wallets</h2>
       <div class="wallet" v-for="(wallet, i) in portfolio.wallets" :key="i">
         <div class="input">
@@ -45,10 +46,17 @@
           <label>Note</label>
           <input v-model="wallet.note" />
         </div>
-        <button type="button" @click="rmWallet(i)">-</button>
+        <button class="remove" type="button" @click="rmWallet(i)">×</button>
       </div>
-      <button type="button" @click="addWallet">add</button>
-      <button type="submit">save</button>
+      <div class="actions">
+        <button type="button" @click="addWallet">+ wallet</button>
+        <nuxt-link
+          class="button cancel red"
+          :to="`/portfolio?id=${$route.query.id}`"
+          >Cancel</nuxt-link
+        >
+        <button class="green" type="submit">Save</button>
+      </div>
     </form>
   </div>
 </template>
@@ -143,7 +151,7 @@ export default {
         value: item.id,
         label:
           item.id == '_fiat'
-            ? `${this.portfolio.currency.toUpperCase()}`
+            ? `${this.portfolio.currency.toUpperCase()} (same as funds)`
             : `${item.symbol.toUpperCase()} ${item.name}`,
       }))
     },
@@ -196,8 +204,9 @@ export default {
   border: rebeccapurple 1px solid;
   border-left: none;
   border-right: none;
-  padding: 10px 0;
+  padding: 20px 0 10px 0;
   margin-top: -1px;
+  position: relative;
   @media (max-width: 600px) {
     display: block;
   }
@@ -207,6 +216,25 @@ export default {
     @media (max-width: 600px) {
       width: 100%;
     }
+  }
+  button.remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    color: orangered;
+    font-size: 28px;
+    padding: 5px;
+    margin: 0;
+  }
+}
+.actions {
+  margin: 10px 0;
+  display: flex;
+  margin-left: -2px;
+  > * {
+    flex: 1;
+    margin-left: 2px;
   }
 }
 </style>

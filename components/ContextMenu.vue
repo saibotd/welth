@@ -41,15 +41,21 @@ export default {
   flex-direction: column;
   align-items: center;
   position: relative;
-  &.closed .menu {
-    transform: translateY(80%) scale(0.2);
-    opacity: 0;
-    pointer-events: none;
-    touch-action: none;
+  &.closed {
+    overflow: hidden;
+    .menu {
+      transform: translateY(50%) scale(0.1);
+      opacity: 0;
+      pointer-events: none;
+      touch-action: none;
+    }
   }
-  &.open .menu {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+  &.open {
+    overflow: visible;
+    .menu {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
   }
 }
 .icon {
@@ -82,7 +88,7 @@ export default {
     text-decoration: none;
     cursor: pointer;
   }
-  transition: transform 0.4s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.2s;
   &:after {
     content: ' ';
     position: absolute;
