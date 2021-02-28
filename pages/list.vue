@@ -52,7 +52,7 @@ export default {
           }
       this.portfolios = portfolios
       await localforage.setItem('portfolios', portfolios)
-      if (!portfolioData) this.$router.push(`/portfolio?id=${id}`)
+      if (!portfolioData) this.$router.push(`/edit?id=${id}`)
     },
     async rmPortfolio(id) {
       const portfolios = await localforage.getItem('portfolios')
