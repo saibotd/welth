@@ -218,7 +218,7 @@ export default {
       if (!this.ready) return []
       const idMap = {}
       this.wallets.forEach((wallet) => {
-        if (!idMap[wallet.id]) idMap[wallet.id] = wallet
+        if (!idMap[wallet.id]) idMap[wallet.id] = { ...wallet }
         else idMap[wallet.id].val += wallet.val
       })
       return Object.values(idMap)
