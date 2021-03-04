@@ -42,7 +42,6 @@ export default {
   align-items: center;
   position: relative;
   &.closed {
-    overflow: hidden;
     .menu {
       transform: translateY(50%) scale(0.1);
       opacity: 0;
@@ -51,7 +50,6 @@ export default {
     }
   }
   &.open {
-    overflow: visible;
     .menu {
       transform: translateY(0) scale(1);
       opacity: 1;

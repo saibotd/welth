@@ -127,6 +127,7 @@ export default {
     return {
       ready: false,
       prices: null,
+      lastPrices: null,
       currencyFormat: null,
       percentageFormat: null,
       loading: true,
@@ -197,13 +198,21 @@ export default {
           }
         }
         this.prices = prices
-        this.lastUpdate = Date.now()
-        this.timeout = setTimeout(this.update, 20000)
+        if (JSON.stringify(prices) !== JSON.stringify(this.lastPrices)) {
+          console.log('Prices changed, wait 20s for next update')
+          this.lastUpdate = Date.now()
+          this.timeout = setTimeout(this.update, 20000)
+          this.lastPrices = prices
+        } else {
+          console.log('Prices stayed the same, retry in 5s')
+          this.timeout = setTimeout(this.update, 5000)
+        }
       } catch (e) {
+        console.log('Update failed, try again in 1s')
         this.timeout = setTimeout(this.update, 1000)
         return
       }
-      setTimeout(() => (this.loading = false), 1000)
+      this.loading = false
       this.ready = true
     },
     formatCurrency(num) {
