@@ -1,7 +1,27 @@
 <template>
   <div class="container" v-if="ready">
     <h1>Export {{ portfolio.title }}</h1>
-    <input type="url" :value="this.importUrl" />
+    <p>
+      Copy your portfolio to another browser or mobile device with this
+      convenient, yet very long, URL.
+    </p>
+    <input
+      type="url"
+      :value="importUrl"
+      readonly
+      autofocus
+      onClick="this.select()"
+      onFocus="this.select()"
+      v-clipboard="importUrl"
+    />
+    <button
+      v-clipboard="importUrl"
+      v-clipboard:success="
+        () => $toast.show('URL copied ✓', { duration: 2000 })
+      "
+    >
+      Copy to clipboard
+    </button>
     <div class="code">
       <qrcode-vue :value="this.importUrl" :size="300" margin="10" level="H" />
     </div>

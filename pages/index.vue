@@ -4,7 +4,7 @@
       <img src="../assets/logo.svg" />
       welth
     </h1>
-    <p></p>
+    <p>welth is a very simple crypto portfolio tracker.</p>
     <nuxt-link class="button" v-if="portfolios" to="/list"
       >Your portfolios</nuxt-link
     >

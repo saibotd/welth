@@ -57,8 +57,8 @@ export default {
   }
 }
 .icon {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   position: relative;
   z-index: 3;
   cursor: pointer;
@@ -68,7 +68,7 @@ export default {
 }
 .menu {
   position: absolute;
-  bottom: 5rem;
+  bottom: 6rem;
   background: deeppink;
   display: flex;
   flex-direction: column-reverse;

@@ -57,8 +57,7 @@ button,
   margin: 0.2em 0;
   text-align: center;
   cursor: pointer;
-  &:active,
-  &:focus {
+  &:active {
     top: 2px;
   }
   &.red {
