@@ -50,7 +50,7 @@ export default {
       return this.options.find(({ value }) => value == this.value).label
     },
     filteredOptions() {
-      if (!this.search.length) return this.options
+      if (!this.search.length) return []
       return this.options.filter(({ label }) =>
         label.toLowerCase().startsWith(this.search.toLowerCase())
       )
@@ -101,7 +101,7 @@ export default {
     background: lightgray;
     border-top: dimgray 1px solid;
     border-bottom: dimgray 1px solid;
-    max-height: 50vh;
+    max-height: 30vh;
     overflow-y: auto;
     z-index: 1;
     input {
